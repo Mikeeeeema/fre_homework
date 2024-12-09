@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HW3</title>
+    <link rel="stylesheet" href="init.css" />
+  </head>
+  <body>
+    <table id="t1">
+      <thead>
+        <tr>
+          <th scope="col">region</th>
+          <th scope="col">model</th>
+          <th scope="col">sales</th>
+        </tr>
+      </thead>
+      <tbody id="tbody1"></tbody>
+    </table>
+    <div>&nbsp;</div>
+    <div>&nbsp;</div>
+
+    <div class="filter-controls">
+      <label for="region-filter">Region Filter</label>
+      <select id="region-filter">
+        <option value="all">all</option>
+      </select>
+
+      <label for="model-filter">Model Filter</label>
+      <select id="model-filter">
+        <option value="all">all</option>
+      </select>
+    </div>
+    <table id="t2">
+      <thead>
+        <tr>
+          <th scope="col">region</th>
+          <th scope="col">model</th>
+          <th scope="col">sales</th>
+        </tr>
+      </thead>
+      <tbody id="tbody2"></tbody>
+    </table>
+    <script src="init.js"></script>
+  </body>
+</html>
