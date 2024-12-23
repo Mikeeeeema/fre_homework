@@ -1,0 +1,67 @@
+Git clone projectPath: 
+
+- This command is used to copy aremote repository to local machine. 
+
+Git pull ->
+
+- This is used to fetching changes from a remote repository and merge them into current branch. I
+
+Git checkout [branchName] -> 
+
+- This command is used to switching to the specific branch. 
+
+Git branch [branchName] -> 
+
+- This command would create a new branch with the specified branch name, but it would not switch to that branch automatically.
+
+Git checkout -b [branchName] -> 
+
+- This command would create a new branch with the specified branch name and immediately switches to it.
+
+Git branch: 
+
+- This command would list all branches in the repository, highlighting the branche I am currently on,
+
+Git add .
+
+- Stages all changes in the current directory for the next commit.
+
+Git commit 
+
+- Record the staged changes to the repository's history. Tipically a commit message is required.
+
+Git log 
+
+- Displays a list of all commits in the current branch, showing commit message, hashes, and other metadata. 
+
+Git Push
+
+- Uploads local branch's commit to the remote repository 
+
+Git merge
+
+- Combines the changes from one branch into another branch. Typically used to integrate a feature branch into the main branch.
+
+Git reset vs git revert
+
+- Git reset: 
+  - Moves the branch pointer to a previous commit, effectively "undoing" commits. This changes the commit history and should be used cautiously.
+- Git revert:
+  - Creates a new commit that undoes the changes from a previous commit. The commit history remains intact.
+
+Git merge vs git rebase 
+
+- Git merge:
+  - Combines changes from one branch into another branch
+- Git rebase
+  - Reapplies commits from one branch on top of another branch, creating a liner history 
+
+Git pull vs git fetch
+
+- git pull:
+  - Fetchs changes from the remote repository and immediately merges them into your local branch
+- git fetch:
+  - Only getch changes from the remote repositorty without merging.
+
+follow the steps and learn angular moduel based structure. https://www.tektutorialshub.com/angular/angular-create-first-application/
+
