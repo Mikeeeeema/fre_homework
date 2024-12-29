@@ -1,0 +1,12 @@
+<div>
+  {{ card.title }}
+</div>
+<div>
+  {{ card.context }}
+</div>
+<button
+  [ngStyle]="{ 'background-color': card.btncolor }"
+  (click)="handleClick()"
+>
+  Set {{ card.btncolor }}
+</button>

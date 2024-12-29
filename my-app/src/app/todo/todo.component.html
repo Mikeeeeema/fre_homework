@@ -1,0 +1,29 @@
+<!-- <p>todo works!</p>
+<h1>{{ name }}2</h1>
+<div *ngIf="isDisabled">
+  <h3 *ngFor="let todo of todos">{{ todo.id }}{{ todo.title }}</h3>
+</div>
+
+<button [disabled]="isDisabled">Template</button>
+<button (click)="handleClick()">Disable Tmp</button> -->
+<header class="header">implement a todo list</header>
+
+<main class="container">
+  <section class="todolist">
+    <header style="color: red" class="todolist-header">todolist</header>
+    <input
+      type="text"
+      class="todolist-input"
+      placeholder="Input your todo..."
+      [(ngModel)]="title"
+    />
+    {{ title }}
+    <ul class="todolist-container">
+      <app-todo-item
+        *ngFor="let todo of todos"
+        [item]="todo"
+        (todoidRef)="deleteTodo($event)"
+      ></app-todo-item>
+    </ul>
+  </section>
+</main>

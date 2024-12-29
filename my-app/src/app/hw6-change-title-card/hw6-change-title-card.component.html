@@ -1,0 +1,8 @@
+<div>{{ card.title }}</div>
+<div>{{ card.content }}</div>
+<button
+  [ngStyle]="{ 'background-color': card.btncolor }"
+  (click)="handleClick()"
+>
+  SET {{ card.btncolor }}
+</button>

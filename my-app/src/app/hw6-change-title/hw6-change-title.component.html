@@ -1,0 +1,33 @@
+<h1 [ngStyle]="{ color: titleColor }">What is Angular?</h1>
+<div class="container">
+  <app-hw6-change-title-card
+    class="card"
+    *ngFor="let card of cards"
+    [card]="card"
+    (btncolor)="handleClick($event)"
+    [ngStyle]="{
+      border: titleColor === card.btncolor ? '2px solid ' + card.btncolor : ''
+    }"
+  ></app-hw6-change-title-card>
+</div>
+
+<!-- 为什么这个更改了但是点击别的不会取消 -->
+<!-- <h1 [ngStyle]="{ color: titleColor }">What is Angular?</h1>
+<div class="container">
+  <div
+    class="card"
+    *ngFor="let card of cards"
+    [ngStyle]="{
+      border: titleColor === card.btncolor ? '2px solid ' + card.btncolor : ''
+    }"
+  >
+    <div>{{ card.title }}</div>
+    <div>{{ card.content }}</div>
+    <button
+      [ngStyle]="{ 'background-color': card.btncolor }"
+      (click)="handleClick(card.btncolor)"
+    >
+      SET {{ card.btncolor }}
+    </button>
+  </div>
+</div> -->

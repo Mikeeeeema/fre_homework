@@ -1,0 +1,13 @@
+<h1 [ngStyle]="{ color: titlecolor }">What is Angular?</h1>
+<div class="container">
+  <app-change-title-card
+    class="card"
+    *ngFor="let card of cards"
+    [ngStyle]="{
+      border: titlecolor === card.btncolor ? '2px solid ' + card.btncolor : ''
+    }"
+    [card]="card"
+    (btncolor)="handleClick($event)"
+  >
+  </app-change-title-card>
+</div>

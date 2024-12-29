@@ -1,0 +1,17 @@
+.card {
+  /* border: 2px solid black; */
+  width: 45%;
+}
+.card button {
+  color: white;
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.selected {
+  border: 2px solid black;
+}
+.red {
+  border: red;
+}
