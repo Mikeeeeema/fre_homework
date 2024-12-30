@@ -20,6 +20,8 @@ export class TodoComponent {
   isDisabled = true;
   todos!: Todo[];
   title = '';
+  search = '';
+  // searchArr!: Todo[];
 
   //use this way would not change the data in service
   // todos = new TodoService().todos;
@@ -32,6 +34,7 @@ export class TodoComponent {
     // });
     this.todoService.gettodo().subscribe((todos) => {
       this.todos = todos;
+      // this.searchArr = [...this.todos]; //need the shallow copy
     });
   }
 
@@ -42,4 +45,10 @@ export class TodoComponent {
   deleteTodo(id: number) {
     this.todos = this.todos.filter((ele) => ele.id !== id);
   }
+
+  // handleInput() {
+  //   this.searchArr = this.todos.filter((ele) => {
+  //     return ele.title.includes(this.search);
+  //   });
+  // }
 }

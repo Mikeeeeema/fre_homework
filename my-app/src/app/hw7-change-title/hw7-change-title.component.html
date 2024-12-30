@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="list">
+    <h1 class="list-title">List</h1>
+    <div class="persons" *ngFor="let person of persons">
+      <div class="info" (click)="handleClick(person)">
+        <div
+          class="color-box"
+          [ngStyle]="{ 'background-color': person.labelColor }"
+        ></div>
+        <div class="content">
+          <div>{{ person.name }}</div>
+          <div class="person-context">{{ person.context | adddot }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="right-half">
+    <div class="right">
+      <div class="right-name">
+        {{ currentName }}
+      </div>
+      <div class="right-content">
+        {{ currentContent }}
+      </div>
+      <button class="save-btn" *ngIf="currentContent.length > 0">Save</button>
+    </div>
+  </div>
+</div>

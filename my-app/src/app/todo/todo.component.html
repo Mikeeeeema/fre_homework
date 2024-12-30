@@ -6,6 +6,7 @@
 
 <button [disabled]="isDisabled">Template</button>
 <button (click)="handleClick()">Disable Tmp</button> -->
+
 <header class="header">implement a todo list</header>
 
 <main class="container">
@@ -15,12 +16,12 @@
       type="text"
       class="todolist-input"
       placeholder="Input your todo..."
-      [(ngModel)]="title"
+      [(ngModel)]="search"
     />
     {{ title }}
     <ul class="todolist-container">
       <app-todo-item
-        *ngFor="let todo of todos"
+        *ngFor="let todo of todos | todoPipe : search"
         [item]="todo"
         (todoidRef)="deleteTodo($event)"
       ></app-todo-item>

@@ -1,0 +1,74 @@
+/* .container {
+  display: flex;
+} */
+
+* {
+  background-color: white;
+}
+.list {
+  width: 50%;
+  height: 100%;
+  border-right: 1px solid #000; /* 添加右边框 */
+  display: flex;
+  flex-direction: column;
+}
+.right-half {
+  width: 50%;
+  height: 100%;
+}
+
+.list-title {
+  border-bottom: 1px solid black;
+}
+
+.persons {
+  display: flex;
+  flex-direction: column;
+}
+
+.color-box {
+  width: 10px;
+  margin-right: 10px;
+}
+
+.info {
+  display: flex;
+  border: 1px solid black;
+  transition: background-color 0.3s ease;
+}
+
+.info:hover {
+  background-color: #817f7f;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: scale(1.02);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+.person-context {
+  font-size: small;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+}
+
+.right-name {
+  font-size: 30px;
+  margin: 10px;
+}
+
+.right-content {
+  font-size: 20px;
+}
+.save-btn {
+  align-self: flex-end;
+  margin-top: 10px;
+  margin-right: 10px;
+  width: 40px;
+  color: white;
+  background-color: rgb(42, 82, 245);
+}
