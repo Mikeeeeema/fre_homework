@@ -1,0 +1,15 @@
+<div class="album-container">
+  <div class="results-header">
+    <h2 *ngIf="artist; else noArtist">
+      {{ resultNum }} results for "{{ artist }}"
+    </h2>
+    <ng-template #noArtist> Search Albums by ArtistName: </ng-template>
+    <hr />
+  </div>
+  <ul class="album-list">
+    <li class="album-item" *ngFor="let album of albums">
+      <img class="album-image" [src]="album.albumPic" alt="" />
+      <h5 class="album-name">{{ album.albumName }}</h5>
+    </li>
+  </ul>
+</div>

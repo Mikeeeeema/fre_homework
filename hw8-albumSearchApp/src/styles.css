@@ -1,0 +1,6 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* 确保元素的内边距和边框包含在元素的总宽度和高度内 */
+}

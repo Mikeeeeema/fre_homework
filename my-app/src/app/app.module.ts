@@ -19,9 +19,12 @@ import { Hw6ChangeTitleCardComponent } from './hw6-change-title-card/hw6-change-
 import { TodoPipePipe } from './todo/todo-pipe.pipe';
 import { Hw7ChangeTitleComponent } from './hw7-change-title/hw7-change-title.component';
 import { AdddotPipe } from './hw7-change-title/adddot.pipe';
+import { RxjsIntroComponent } from './rxjs-intro/rxjs-intro.component';
+import { Hw7SearchBarComponent } from './hw7-search-bar/hw7-search-bar.component';
+import { Hw8SearchBarComponent } from './hw8-search-bar/hw8-search-bar.component';
 
 @NgModule({
-  declarations: [AppComponent, TodoComponent, TodoItemComponent, ChangeTitleComponent, ChangeTitleCardComponent, Hw6ChangeTitleComponent, Hw6ChangeTitleCardComponent, TodoPipePipe, Hw7ChangeTitleComponent, AdddotPipe],
+  declarations: [AppComponent, TodoComponent, TodoItemComponent, ChangeTitleComponent, ChangeTitleCardComponent, Hw6ChangeTitleComponent, Hw6ChangeTitleCardComponent, TodoPipePipe, Hw7ChangeTitleComponent, AdddotPipe, RxjsIntroComponent, Hw7SearchBarComponent, Hw8SearchBarComponent],
   //formsmodule is the two way binding
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [provideClientHydration(withEventReplay()), TodoService],
