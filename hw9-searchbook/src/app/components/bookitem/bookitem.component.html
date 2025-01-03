@@ -1,0 +1,4 @@
+<li *ngFor="let book of books">
+  <img [src]="book.bookPic" alt="" />
+  <h5 (click)="onAddToWishList(book)">{{ book.bookName }}</h5>
+</li>
