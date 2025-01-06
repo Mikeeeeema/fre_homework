@@ -1,0 +1,12 @@
+.container {
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 25px;
+  // justify-content: space-between;
+}
+
+.item {
+  list-style-type: none;
+}

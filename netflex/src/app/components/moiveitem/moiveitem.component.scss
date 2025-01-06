@@ -1,0 +1,94 @@
+.container {
+  position: relative;
+  width: 150px; /* 宽度 */
+  height: 225px; /* 高度 */
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  background-color: black;
+}
+
+/* 背景虚化图片 */
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  filter: blur(8px);
+  opacity: 0.6;
+  z-index: 1;
+}
+
+/* 海报图片 */
+.poster {
+  position: absolute;
+  top: 5px; /* 距顶部10px */
+  right: 5px; /* 距右侧10px */
+  width: 60px; /* 缩小图片尺寸 */
+  height: 90px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.7);
+  z-index: 2;
+}
+
+.title {
+  padding-left: 5px;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  line-height: 1.2;
+  z-index: 2;
+}
+
+/* 信息样式 */
+.info {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 4px;
+  z-index: 2;
+}
+.badge {
+  color: white;
+  padding: 3px 8px;
+  border-radius: 15px;
+  font-size: 10px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* 概述 */
+.overview {
+  padding-left: 5px;
+  color: white;
+  font-size: 10px;
+  // line-height: 1.4;
+  max-height: 40px;
+  // overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 8px;
+  z-index: 2;
+}
+
+/* 按钮样式 */
+.details-btn {
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: bold;
+  border: none;
+  border-radius: 3px;
+  background-color: #ff3366;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  z-index: 2;
+}
+.details-btn:hover {
+  background-color: #ff6699;
+}
