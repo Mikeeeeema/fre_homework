@@ -1,0 +1,32 @@
+<p>hw10</p>
+
+<div>
+  <form #moiveForm="" ngForm>
+    <div>
+      <input
+        type="checkbox"
+        [(ngModel)]="allSelected"
+        (change)="toggleSelectAll()"
+        name="selectAll"
+      />
+      <label>Select All</label>
+    </div>
+
+    <div *ngFor="let movie of itemlist; let i = index">
+      <input
+        type="checkbox"
+        [(ngModel)]="selectedMovies[i]"
+        (change)="updateSelectedMovies()"
+        [name]="'movie' + i"
+      />
+      <label>{{ movie }}</label>
+    </div>
+  </form>
+
+  <button (click)="clearAll()">Clear All</button>
+
+  <h3>Selected value</h3>
+  <ul>
+    <li *ngFor="let moive of getSelectedMoives()">{{ moive }}</li>
+  </ul>
+</div>

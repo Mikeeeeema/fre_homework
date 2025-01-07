@@ -1,0 +1,42 @@
+<form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
+  <div>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" #name="ngModel" ngModel />
+  </div>
+  <div>
+    <label for="email">Email:</label>
+    <input type="text" id="email" name="email" [(ngModel)]="user.email" />
+  </div>
+  <button type="submit">Submit</button>
+</form>
+
+<!-- <div class="container">
+  <form #movieForm="ngForm">
+    <div>
+      <input
+        type="checkbox"
+        [(ngModel)]="allSelected"
+        (change)="toggleSelectAll()"
+        name="selectAll"
+      />
+      <label>Select All</label>
+    </div>
+
+    <div *ngFor="let movie of itemlist; let i = index">
+      <input
+        type="checkbox"
+        [(ngModel)]="selectedMovies[i]"
+        (change)="updateSelectedMovies()"
+        [name]="'movie' + i"
+      />
+      <label>{{ movie }}</label>
+    </div>
+  </form>
+
+  <button (click)="clearAll()">Clear All</button>
+
+  <h3>Selected Movies:</h3>
+  <ul>
+    <li *ngFor="let movie of getSelectedMovies()">{{ movie }}</li>
+  </ul>
+</div> -->
