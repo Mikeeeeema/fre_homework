@@ -1,0 +1,43 @@
+<div class="movie-details" *ngIf="movieDetail">
+  <div class="movie-header">
+    <img
+      [src]="'https://image.tmdb.org/t/p/w500/' + movieDetail.backdrop_path"
+      alt="Movie backdrop"
+    />
+
+    <h1>{{ movieDetail.title }}</h1>
+  </div>
+
+  <div class="movie-info">
+    <div class="basic-info">
+      <p class="release-date">{{ movieDetail.release_date | date }}</p>
+      <p class="runtime">{{ movieDetail.runtime }} min</p>
+      <p class="rating">Rating: {{ movieDetail.vote_average }}/10</p>
+      <button *ngIf="videoKey" (click)="showVideo = true">Play Trailer</button>
+    </div>
+
+    <div class="overview">
+      <h2>Overview</h2>
+      <p>{{ movieDetail.overview }}</p>
+    </div>
+
+    <div class="genres">
+      <span *ngFor="let genre of movieDetail.genres">
+        {{ genre.name }}
+      </span>
+    </div>
+  </div>
+</div>
+
+<div class="video-popup" *ngIf="showVideo && videoKey">
+  <div class="popup-content">
+    <button class="close-btn" (click)="showVideo = false">×</button>
+    <youtube-player
+      [videoId]="videoKey"
+      height="400"
+      width="600"
+    ></youtube-player>
+  </div>
+</div>
+
+<button (click)="navigateBack()">Back</button>

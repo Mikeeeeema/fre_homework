@@ -1,0 +1,64 @@
+<div class="login-page">
+  <div class="loginPage">
+    <h1>Sign In</h1>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="acc"></label>
+        <input
+          type="text"
+          name="acc"
+          id="acc"
+          formControlName="acc"
+          placeholder="Email or phone number"
+          required
+        />
+        <div
+          *ngIf="loginForm.get('acc')?.touched && loginForm.get('acc')?.invalid"
+          class="error"
+        >
+          <p *ngIf="loginForm.get('acc')?.errors?.['required']">
+            Email is required
+          </p>
+          <p *ngIf="loginForm.get('acc')?.errors?.['email']">
+            Please enter a valid email address
+          </p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password"></label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          formControlName="password"
+          placeholder="Enter your Password"
+          required
+        />
+      </div>
+      <div
+        *ngIf="
+          loginForm.get('password')?.touched &&
+          loginForm.get('password')?.invalid
+        "
+        class="error"
+      >
+        <p
+          *ngIf="loginForm.get('password')?.errors?.['required'] || loginForm.get('password')?.errors?.['minlength']"
+        >
+          Please enter a valid password
+        </p>
+      </div>
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="!loginForm.valid"
+      >
+        Sign In
+      </button>
+    </form>
+    <button (click)="navigateToSignUp()">Sign up now</button>
+    <button (click)="navigateToHome()">Back</button>
+  </div>
+</div>

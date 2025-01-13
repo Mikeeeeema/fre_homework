@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  flex: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  margin-left: 50px;
+}
+
+.login {
+  margin-right: 50px;
+  height: 70%;
+  background-color: rgb(189, 65, 47);
+  padding: 0.5rem 1rem;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.login:hover {
+  background-color: #e05f7f;
+}

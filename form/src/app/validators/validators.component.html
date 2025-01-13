@@ -1,0 +1,23 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <p>
+    <label for="name">Name:</label>
+    <input type="text" name="name" id="name" formControlName="name" />
+  </p>
+  <div *ngIf="!name?.valid && (!name?.dirty || !name?.touched)">
+    <!-- <div [hidden]="!name?.errors?.['required']">Name is required</div> -->
+    <!-- <div [hidden]="!name?.errors?.['minlength']">Min length is 5</div> -->
+    <div [hidden]="!name?.errors?.['gte']">Name should be greater than 10</div>
+  </div>
+
+  <p>
+    <label for="email">Email:</label>
+    <input type="text" name="email" id="email" formControlName="email" />
+  </p>
+  <div *ngIf="email?.errors?.['hasemail']">
+    Emailed existed, please use a new email
+  </div>
+
+  <p>
+    <button type="submit" [disabled]="!form.valid">Submit</button>
+  </p>
+</form>

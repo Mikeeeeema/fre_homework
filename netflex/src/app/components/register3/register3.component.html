@@ -1,0 +1,30 @@
+<div class="page3">
+  <div class="text">
+    <p>STEP 3 OF 3</p>
+    <h1>Choose the plan that's right for you</h1>
+    <h2>Watch all you want. Ad-free</h2>
+    <h2>Recommendation just for you</h2>
+    <h2>Change or cancel your plan anytime</h2>
+  </div>
+
+  <div class="plan-selection">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="plan-options">
+        <label *ngFor="let plan of plans" class="plan-option">
+          <input
+            type="radio"
+            formControlName="selectedPlan"
+            [value]="plan.name"
+          />
+          <div class="plan-card">
+            <h2>{{ plan.name }}</h2>
+            <p class="price">{{ plan.price }}</p>
+            <p class="quality">{{ plan.quality }}</p>
+            <p class="resolution">{{ plan.resolution }}</p>
+          </div>
+        </label>
+      </div>
+      <button type="submit" class="btn" [disabled]="!form.valid">Next</button>
+    </form>
+  </div>
+</div>
