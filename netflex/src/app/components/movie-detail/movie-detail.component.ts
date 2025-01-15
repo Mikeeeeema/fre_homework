@@ -46,7 +46,8 @@ export class MovieDetailComponent implements OnInit {
       console.log(this.movieDetail);
     });
   }
-
+ 
+  
   loadVideo() {
     this.movieService.getMoiveVideos(this.movieId).subscribe((data) => {
       if (data.results && data.results.length > 0) {

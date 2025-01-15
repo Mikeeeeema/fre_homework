@@ -1,0 +1,52 @@
+@use "../../../style.variables.scss" as *;
+
+.home_header {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  background-color: $transparent_color;
+  height: $header_height;
+  width: 100%;
+  @include flex;
+
+  .header_content {
+    height: 100%;
+    width: $reuse_1000;
+    padding: 0 2rem;
+    @include flex(space-between);
+
+    .netflix_icon {
+      height: 2.5rem;
+      cursor: pointer;
+      object-fit: contain;
+    }
+  }
+
+  .login_container {
+    height: 100%;
+    @include flex(center);
+    margin-left: auto;
+
+    .signIn_btn {
+      height: 2.5rem;
+      width: 7rem;
+      border: none;
+      background-color: #e50914;
+      color: white;
+      font-weight: 500;
+      font-size: 1rem;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+
+      &:hover {
+        background-color: #f40612;
+      }
+
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(229, 9, 20, 0.4);
+      }
+    }
+  }
+}

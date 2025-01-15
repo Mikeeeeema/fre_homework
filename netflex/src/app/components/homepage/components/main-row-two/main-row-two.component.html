@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="content">
+    <div class="content_1">
+      <div class="content_1_header">{{ header() }}</div>
+      <div class="content_1_content">{{ content() }}</div>
+    </div>
+
+    <div class="content_2">
+      @if (templatePic() === "tv") {
+      <img src="/assets/home/tv.png" alt="" />
+      } @else if (templatePic() === "device") {
+      <img src="/assets/home/device-pile.png" alt="" />
+      }
+    </div>
+
+    <video
+      #video_holder
+      [autoplay]="true"
+      [muted]="true"
+      [loop]="true"
+      [ngClass]="{
+        content_tv: templatePic() === 'tv',
+        content_device: templatePic() === 'device'
+      }"
+    >
+      <source src="assets/home/jojo_6.mp4" type="video/mp4" />
+    </video>
+  </div>
+</div>

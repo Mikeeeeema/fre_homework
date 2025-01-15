@@ -5,6 +5,7 @@ import { Register1Component } from '../components/register1/register1.component'
 import { Register2Component } from '../components/register2/register2.component';
 import { Register3Component } from '../components/register3/register3.component';
 import { RouterModule, Routes } from '@angular/router';
+import { SharedModule } from '../shared/shared.module'; // 导入 SharedModule
 
 const routes: Routes = [
   { path: '', redirectTo: '1', pathMatch: 'full' },
@@ -15,7 +16,12 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [Register1Component, Register2Component, Register3Component],
-  imports: [CommonModule, ReactiveFormsModule, RouterModule.forChild(routes)],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    RouterModule.forChild(routes),
+    SharedModule,
+  ],
   exports: [Register1Component, Register2Component, Register3Component],
 })
 export class RegisterModule {}

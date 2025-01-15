@@ -20,12 +20,21 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { HomeModule } from './home/home.module';
+// import { MainRowOneComponent } from './components/homepage/components/main-row-one/main-row-one.component';
+// import { MainRowTwoComponent } from './components/homepage/components/main-row-two/main-row-two.component';
+// import { MainRowThreeComponent } from './components/homepage/components/main-row-three/main-row-three.component';
+// import { MainQuestionComponent } from './components/homepage/components/main-question/main-question.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 // import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
 // import { HomepageComponent } from './components/homepage/homepage.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    // MainRowOneComponent,
+    // MainRowTwoComponent,
+    // MainRowThreeComponent,
+    // MainQuestionComponent,
     // MovieDetailComponent,
     // MoiveitemComponent,
     // MoivelistComponent,
@@ -46,7 +55,10 @@ import { HomeModule } from './home/home.module';
     SharedModule,
     HomeModule,
   ],
-  providers: [provideClientHydration(withEventReplay())],
+  providers: [
+    provideClientHydration(withEventReplay()),
+    provideAnimationsAsync(),
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

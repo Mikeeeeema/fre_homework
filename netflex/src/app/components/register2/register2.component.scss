@@ -10,6 +10,12 @@ body {
   background-color: #f8f9fa;
 }
 
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+}
+
 .r2page {
   display: flex;
   flex-direction: column;

@@ -1,4 +1,10 @@
 /* Page container */
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+}
+
 .page3 {
   display: flex;
   flex-direction: column;
