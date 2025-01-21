@@ -14,11 +14,7 @@
       <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <div class="plan-options">
           <label *ngFor="let plan of plans" class="plan-option">
-            <input
-              type="radio"
-              formControlName="selectedPlan"
-              [value]="plan.name"
-            />
+            <input type="radio" formControlName="role" [value]="plan.role" />
             <div class="plan-card">
               <h2>{{ plan.name }}</h2>
               <p class="price">{{ plan.price }}</p>

@@ -1,27 +1,29 @@
 <div class="login-page">
   <!-- <app-main-header></app-main-header> -->
-  <div class="loginPage">
+  <div class="container">
     <h1>Sign In</h1>
 
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
-        <label for="acc"></label>
+        <label for="email"></label>
         <input
           type="text"
-          name="acc"
-          id="acc"
-          formControlName="acc"
+          name="email"
+          id="email"
+          formControlName="email"
           placeholder="Email or phone number"
           required
         />
         <div
-          *ngIf="loginForm.get('acc')?.touched && loginForm.get('acc')?.invalid"
+          *ngIf="
+            loginForm.get('email')?.touched && loginForm.get('email')?.invalid
+          "
           class="error"
         >
-          <p *ngIf="loginForm.get('acc')?.errors?.['required']">
+          <p *ngIf="loginForm.get('email')?.errors?.['required']">
             Email is required
           </p>
-          <p *ngIf="loginForm.get('acc')?.errors?.['email']">
+          <p *ngIf="loginForm.get('email')?.errors?.['email']">
             Please enter a valid email address
           </p>
         </div>

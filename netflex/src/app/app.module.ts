@@ -25,12 +25,14 @@ import { HomeModule } from './home/home.module';
 // import { MainRowThreeComponent } from './components/homepage/components/main-row-three/main-row-three.component';
 // import { MainQuestionComponent } from './components/homepage/components/main-question/main-question.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+// import { UserHomePageComponent } from './components/user-home-page/user-home-page.component';
 // import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
 // import { HomepageComponent } from './components/homepage/homepage.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    // UserHomePageComponent,
     // MainRowOneComponent,
     // MainRowTwoComponent,
     // MainRowThreeComponent,

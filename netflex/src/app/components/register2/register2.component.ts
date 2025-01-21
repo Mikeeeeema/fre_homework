@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { RegisterService } from '../../services/register.service';
 
 @Component({
   selector: 'app-register2',
@@ -12,17 +13,22 @@ import { Router } from '@angular/router';
 export class Register2Component implements OnInit {
   form!: FormGroup;
 
-  constructor(private fb: FormBuilder, private router: Router) {}
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private registerService: RegisterService
+  ) {}
   ngOnInit(): void {
     this.form = this.fb.group({
       username: ['', [Validators.required]],
-      tmdb: ['', [Validators.required]],
+      tmdb_key: ['', [Validators.required]],
     });
   }
 
   onSubmit() {
     if (this.form.valid) {
-      console.log(this.form.value);
+      this.registerService.setRegisterData(this.form.value);
+      console.log(this.registerService.getRegisterData());
     } else {
       console.log('not valid');
     }

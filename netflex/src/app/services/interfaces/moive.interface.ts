@@ -98,3 +98,11 @@ export interface ResultsEntity1 {
   published_at: string;
   id: string;
 }
+
+export interface RegisterInfo {
+  username: string;
+  password: string;
+  email: string;
+  role: string;
+  tmdb_key: string;
+}

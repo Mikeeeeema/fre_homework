@@ -8,6 +8,8 @@ import {
   Validators,
 } from '@angular/forms';
 import { log } from 'console';
+import { UserService } from '../../services/user.service';
+import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
   selector: 'app-sign-in-page',
@@ -19,22 +21,40 @@ import { log } from 'console';
 export class SignInPageComponent implements OnInit {
   loginForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private router: Router) {}
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private userService: UserService,
+    private authService: AuthService
+  ) {}
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
-      acc: ['', [Validators.required, Validators.email]],
+      email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
   onSubmit() {
     if (this.loginForm.valid) {
-      console.log(this.loginForm.value);
+      const credentials = {
+        email: this.loginForm.get('email')?.value,
+        password: this.loginForm.get('password')?.value,
+      };
+
+      this.userService.signIn(credentials).subscribe(
+        (response) => {
+          console.log('Login successful', response);
+          localStorage.setItem('token', response.token);
+          this.authService.register(response.accessToken);
+          this.router.navigate(['/signin/userHome']);
+        },
+        (error) => {
+          console.log('Login failed', error);
+        }
+      );
     } else {
       console.log('Form is invalid');
     }
-    // console.log('Email or phone number: ', this.loginForm.get('acc')?.value);
-    // console.log('Password: ', this.loginForm.get('password')?.value);
   }
 
   navigateToSignUp() {

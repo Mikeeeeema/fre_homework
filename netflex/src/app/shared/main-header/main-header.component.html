@@ -7,9 +7,17 @@
       alt="Netflix"
     />
     <div class="login_container">
-      <button mat-raised-button class="signIn_btn" [routerLink]="['/signin']">
-        Sign In
-      </button>
+      <ng-container class="box" *ngIf="isAuthenticated(); else signInTemplate">
+        <span class="text">Hi, {{ getUsername() }}</span>
+        <button mat-raised-button class="signIn_btn" (click)="signOut()">
+          Sign Out
+        </button>
+      </ng-container>
+      <ng-template #signInTemplate>
+        <button mat-raised-button class="signIn_btn" [routerLink]="['/signin']">
+          Sign In
+        </button>
+      </ng-template>
     </div>
   </div>
 </div>

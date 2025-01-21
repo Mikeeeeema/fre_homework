@@ -11,6 +11,7 @@ import {
 import { catchError, map, Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { RegisterService } from '../../services/register.service';
 
 @Component({
   selector: 'app-register1',
@@ -26,7 +27,8 @@ export class Register1Component implements OnInit {
   constructor(
     private fb: FormBuilder,
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private registerService: RegisterService
   ) {}
   ngOnInit(): void {
     this.form = this.fb.group({
@@ -39,51 +41,33 @@ export class Register1Component implements OnInit {
     });
   }
 
-  //???
   private asyncCheckEmail(): AsyncValidatorFn {
     return (control: AbstractControl): Observable<ValidationErrors | null> => {
-      const baseURL = 'http://localhost:4231/auth/check-email';
+      const baseURL = 'http://localhost:5566/api/v1/auth/check-email';
       const value: string = control.value;
+
+      // 如果值为空，直接返回 null（同步验证器会处理 "required" 错误）
+      if (!value) {
+        return of(null);
+      }
 
       return this.http.post(baseURL, { email: value }).pipe(
         map((data: any) => {
-          console.log(data);
-          if (data) {
-            return { hasemail: true };
+          if (data && data.exists) {
+            // 假设后端返回 { exists: true }
+            return { hasemail: true }; // 返回错误对象
           }
-          return null;
+          return null; // 验证通过
         }),
-        catchError(() => of(null))
+        catchError(() => of(null)) // 捕获错误并返回 null，避免中断验证
       );
     };
   }
 
-  // private asyncCheckEmail(): AsyncValidatorFn {
-  //   return (control: AbstractControl): Observable<ValidationErrors | null> => {
-  //     const baseURL = 'http://localhost:4231/auth/check-email';
-  //     const value: string = control.value;
-
-  //     // 如果值为空，直接返回 null（同步验证器会处理 "required" 错误）
-  //     if (!value) {
-  //       return of(null);
-  //     }
-
-  //     return this.http.post(baseURL, { email: value }).pipe(
-  //       map((data: any) => {
-  //         if (data && data.exists) {
-  //           // 假设后端返回 { exists: true }
-  //           return { hasemail: true }; // 返回错误对象
-  //         }
-  //         return null; // 验证通过
-  //       }),
-  //       catchError(() => of(null)) // 捕获错误并返回 null，避免中断验证
-  //     );
-  //   };
-  // }
-
   onSubmit() {
     if (this.form.valid) {
-      console.log(this.form.value);
+      this.registerService.setRegisterData(this.form.value);
+      console.log(this.registerService.getRegisterData());
       // this.user.email = this.form.get('email')?.value;
       // this.user.password = this.form.get('password')?.value;
       // console.log(this.user);
