@@ -53,7 +53,7 @@ export class Register1Component implements OnInit {
 
       return this.http.post(baseURL, { email: value }).pipe(
         map((data: any) => {
-          if (data && data.exists) {
+          if (data) {
             // 假设后端返回 { exists: true }
             return { hasemail: true }; // 返回错误对象
           }

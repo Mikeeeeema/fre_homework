@@ -8,14 +8,21 @@ import { FormGroup } from '@angular/forms';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'form';
-
   form: { name: string; email: string } = {
-    name: 'Mike',
-    email: '12345@gmail.com',
+    name: 'Runzhi',
+    email: '850937721@qq.com',
   };
 
   sendData(data: { name: string; email: string }) {
     this.form = data;
   }
+
+  // title = 'form';
+  // form: { name: string; email: string } = {
+  //   name: 'Mike',
+  //   email: '12345@gmail.com',
+  // };
+  // sendData(data: { name: string; email: string }) {
+  //   this.form = data;
+  // }
 }
