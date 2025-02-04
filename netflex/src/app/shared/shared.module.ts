@@ -8,6 +8,7 @@ import { MainHeaderComponent } from './main-header/main-header.component';
 import { MainFooterComponent } from './main-footer/main-footer.component';
 import { RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 //要export
 @NgModule({
@@ -19,7 +20,7 @@ import { MatButtonModule } from '@angular/material/button';
     MainHeaderComponent,
     MainFooterComponent,
   ],
-  imports: [CommonModule, RouterModule, MatButtonModule],
+  imports: [CommonModule, RouterModule, MatButtonModule, InfiniteScrollModule],
   exports: [
     NavbarComponent,
     MoiveitemComponent,

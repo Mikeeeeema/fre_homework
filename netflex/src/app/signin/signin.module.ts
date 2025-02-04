@@ -6,6 +6,9 @@ import { SignInPageComponent } from '../components/sign-in-page/sign-in-page.com
 import { UserHomePageComponent } from '../components/user-home-page/user-home-page.component';
 import { SharedModule } from '../shared/shared.module';
 import { AuthGuard } from '../services/auth/auth.guard';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+// import { MoivelistComponent } from '../components/moivelist/moivelist.component';
+
 // import { MoivelistComponent } from '../components/moivelist/moivelist.component';
 // import { MoiveitemComponent } from '../components/moiveitem/moiveitem.component';
 
@@ -26,6 +29,7 @@ const routes: Routes = [
     SignInPageComponent,
     UserHomePageComponent,
     // MoivelistComponent,
+    // MoivelistComponent,
     // MoiveitemComponent,
   ],
   imports: [
@@ -33,6 +37,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     RouterModule.forChild(routes),
     SharedModule,
+    InfiniteScrollModule,
   ],
   exports: [SignInPageComponent, UserHomePageComponent],
 })

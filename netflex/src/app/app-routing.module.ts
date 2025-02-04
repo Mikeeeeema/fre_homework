@@ -6,6 +6,7 @@ import { Register2Component } from './components/register2/register2.component';
 import { Register3Component } from './components/register3/register3.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { DetailModule } from './detail/detail.module';
+import { RoleGuard } from './services/auth/role.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -35,6 +36,7 @@ const routes: Routes = [
     path: 'detail/:id',
     loadChildren: () =>
       import('./detail/detail.module').then((m) => m.DetailModule),
+    canActivate: [RoleGuard],
   },
 ];
 

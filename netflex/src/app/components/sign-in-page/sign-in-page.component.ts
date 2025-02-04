@@ -44,7 +44,9 @@ export class SignInPageComponent implements OnInit {
       this.userService.signIn(credentials).subscribe(
         (response) => {
           console.log('Login successful', response);
-          localStorage.setItem('token', response.token);
+          console.log('Storing token:', response.accessToken);
+          localStorage.setItem('token', response.accessToken);
+          localStorage.setItem('role', response.role); // 存储角色信息
           this.authService.register(response.accessToken);
           this.router.navigate(['/signin/userHome']);
         },

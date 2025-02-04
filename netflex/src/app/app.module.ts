@@ -7,7 +7,11 @@ import {
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpClientModule,
+  HTTP_INTERCEPTORS,
+} from '@angular/common/http';
 // import { MoiveitemComponent } from './components/moiveitem/moiveitem.component';
 // import { MoivelistComponent } from './components/moivelist/moivelist.component';
 // import { DotPipe } from './components/moiveitem/dot.pipe';
@@ -28,6 +32,9 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 // import { UserHomePageComponent } from './components/user-home-page/user-home-page.component';
 // import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
 // import { HomepageComponent } from './components/homepage/homepage.component';
+
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { AuthInterceptor } from './core/interceptor/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -56,10 +63,12 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     CoreModule,
     SharedModule,
     HomeModule,
+    InfiniteScrollModule,
   ],
   providers: [
     provideClientHydration(withEventReplay()),
     provideAnimationsAsync(),
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
 })

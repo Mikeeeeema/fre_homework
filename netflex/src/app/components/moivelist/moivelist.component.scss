@@ -1,12 +1,28 @@
-.container {
-  background-color: black;
+// .container {
+//   background-color: black;
+//   display: flex;
+//   flex-direction: row;
+//   flex-wrap: wrap;
+//   gap: 25px;
+//   // justify-content: space-between;
+// }
+
+// .item {
+//   list-style-type: none;
+// }
+
+.container ul {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 25px;
-  // justify-content: space-between;
+  flex-wrap: wrap; /* 自动换行 */
+  gap: 16px; /* 每个项目之间的间距 */
+  justify-content: space-between; /* 平均分布项目 */
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
 
-.item {
-  list-style-type: none;
+.container .item {
+  flex: 1 1 calc(16.66% - 16px); /* 每个项目占一行六分之一，并减去间距 */
+  box-sizing: border-box; /* 确保 padding 和 border 不影响宽度 */
+  text-align: center; /* 居中对齐内容（可选） */
 }

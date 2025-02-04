@@ -1,5 +1,20 @@
-<ul class="container">
+<!-- <ul class="container">
   <li class="item" *ngFor="let movie of movies">
     <app-moiveitem [movie]="movie"></app-moiveitem>
   </li>
-</ul>
+</ul> -->
+
+<div
+  class="container"
+  infiniteScroll
+  [infiniteScrollDistance]="2"
+  [infiniteScrollUpDistance]="1.5"
+  [infiniteScrollThrottle]="150"
+  (scrolled)="onScroll()"
+>
+  <ul>
+    <li class="item" *ngFor="let movie of movies">
+      <app-moiveitem [movie]="movie"></app-moiveitem>
+    </li>
+  </ul>
+</div>

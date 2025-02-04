@@ -7,6 +7,7 @@ import { SharedModule } from '../shared/shared.module';
 import { MainRowTwoComponent } from '../components/homepage/components/main-row-two/main-row-two.component';
 import { MainRowThreeComponent } from '../components/homepage/components/main-row-three/main-row-three.component';
 import { MainQuestionComponent } from '../components/homepage/components/main-question/main-question.component';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,12 @@ import { MainQuestionComponent } from '../components/homepage/components/main-qu
     MainRowThreeComponent,
     MainQuestionComponent,
   ],
-  imports: [CommonModule, SharedModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    SharedModule,
+    ReactiveFormsModule,
+    InfiniteScrollModule,
+  ],
   exports: [
     HomepageComponent,
     MainRowOneComponent,

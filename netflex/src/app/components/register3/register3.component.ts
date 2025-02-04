@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RegisterService } from '../../services/register.service';
 import { UserRole } from '../../services/enum/user-role.enum';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
   selector: 'app-register3',
@@ -13,6 +14,7 @@ import { Router } from '@angular/router';
 })
 export class Register3Component implements OnInit {
   form!: FormGroup;
+  isUpdatingRole = false;
 
   plans = [
     {
@@ -44,12 +46,18 @@ export class Register3Component implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private registerService: RegisterService
+    private registerService: RegisterService,
+    private authService: AuthService
   ) {}
+
   ngOnInit(): void {
     this.form = this.fb.group({
       role: ['', [Validators.required]],
     });
+
+    if (typeof window !== 'undefined' && localStorage.getItem('token')) {
+      this.isUpdatingRole = true;
+    }
   }
 
   onSubmit() {
@@ -57,17 +65,32 @@ export class Register3Component implements OnInit {
       (plan) => plan.role === this.form.value.role
     );
     if (selectedPlan) {
-      this.registerService.setRegisterData({ role: selectedPlan.role });
-      console.log(this.registerService.getRegisterData());
-      this.registerService.signUp().subscribe(
-        (response) => {
-          console.log('Registration successful', response);
-          this.router.navigate(['/signin']);
-        },
-        (error) => {
-          console.log('Registration failed', error);
-        }
-      );
+      if (this.isUpdatingRole) {
+        // 只更新角色
+        this.authService
+          .upgradePermission({ role: selectedPlan.role })
+          .subscribe(
+            (response) => {
+              console.log('Role update successful', response);
+              this.router.navigate(['/']); // 导航到主页或其他页面
+            },
+            (error) => {
+              console.log('Role update failed', error);
+            }
+          );
+      } else {
+        // 完整注册流程
+        this.registerService.setRegisterData({ role: selectedPlan.role });
+        this.registerService.signUp().subscribe(
+          (response) => {
+            console.log('Registration successful', response);
+            this.router.navigate(['/']); // 导航到主页或其他页面
+          },
+          (error) => {
+            console.log('Registration failed', error);
+          }
+        );
+      }
     }
   }
 }
